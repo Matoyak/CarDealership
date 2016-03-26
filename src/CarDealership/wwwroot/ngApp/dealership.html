@@ -1,0 +1,91 @@
+﻿<div>
+  <h1>Mason's Car Emporium</h1>
+
+  <input type="search" name="search" value="" placeholder="Search for your favorite car!" ng-model="controller.search" ng-change="controller.searchFilter()" />
+
+  <ul>
+    <li ng-repeat="result in controller.searchResults" data-toggle="modal" data-target="#myModal" ng-click="controller.getDetails(result)">{{result.shortDescription}}</li>
+  </ul>
+
+  <select ng-model="controller.selectedMake"
+          ng-options="make.name for make in controller.makes"
+          ng-change="controller.getModels()"></select>
+
+  <ul ng-show="controller.makeModels.length !== 0">
+    <li data-toggle="modal" data-target="#myModal" ng-repeat="model in controller.makeModels" ng-click="controller.getDetails(model)">
+      {{model.shortDescription}}
+    </li>
+  </ul>
+  <ul ng-show="controller.makeModels.length === 0">
+    <li>There are no {{controller.selectedMake.name}}'s for sale.</li>
+  </ul>
+  <!--<div ng-show="controller.makeModels.length !== 0">
+    <table>
+      <tr>
+        <td>Model Name: </td>
+        <td>{{controller.modelData.shortDescription}}</td>
+      </tr>
+      <tr>
+        <td>Model Description: </td>
+        <td>{{controller.modelData.fullDescription}}</td>
+      </tr>
+      <tr>
+        <td>Model Price: </td>
+        <td>{{controller.modelData.price}}</td>
+      </tr>
+      <tr>
+        <td>Model Image: </td>
+        <td><img class="images" src="{{controller.modelData.imageUrl}}"></td>
+      </tr>
+    </table>
+  </div>-->
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{controller.modelData.shortDescription}}</h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <table>
+            <tr>
+              <td>Model Description: </td>
+              <td>{{controller.modelData.fullDescription}}</td>
+            </tr>
+            <tr>
+              <td>Model Price: </td>
+              <td>{{controller.modelData.price | currency}}</td>
+            </tr>
+            <tr>
+              <td>Model Image: </td>
+              <td><img class="images" src="{{controller.modelData.imageUrl}}"></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="btn-group" uib-dropdown>
+  <button id="split-button" type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger" uib-dropdown-toggle>
+    <span class="caret"></span>
+    <span class="sr-only">Split button!</span>
+  </button>
+  <ul uib-dropdown-menu role="menu" aria-labelledby="split-button">
+    <li role="menuitem"><a href="#">Action</a></li>
+    <li role="menuitem"><a href="#">Another action</a></li>
+    <li role="menuitem"><a href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li role="menuitem"><a href="#">Separated link</a></li>
+  </ul>
+</div>-->

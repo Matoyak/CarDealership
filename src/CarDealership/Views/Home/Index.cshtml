@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="CarDealership">
+<head>
+  <title>CarDealership</title>
+  <link href="~/css/html5css3_reset-doctor.css" rel="stylesheet" />
+  <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="~/lib/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" />
+  <link href="~/css/dealership.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <base href="/" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>CarDealership</h1>
+    <div>
+      <a href="/">Home</a> /
+      <a href="/about">About</a> /
+      <a ui-sref='dealership'>Car Dealership</a>
+    </div>
+    <hr />
+    <ui-view></ui-view>
+  </div>
+
+  <!-- Library Files -->
+  <script src="~/lib/angular/angular.js"></script>
+  <script src="~/lib/angular-resource/angular-resource.js"></script>
+  <script src="~/lib/angular-animate/angular-animate.js"></script>
+  <script src="~/lib/angular-touch/angular-touch.js"></script>
+  <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
+
+  <!-- App Files-->
+  <script src="~/ngapp/app.js"></script>
+  <script src="~/ngapp/controllers.js"></script>
+  <script src="~/ngapp/services.js"></script>
+</body>
+</html>
